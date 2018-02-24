@@ -56,7 +56,7 @@ Build for Windows: (only works on Windows)
 $ npm run make:windows
 ```
 
-_For a complete list of *Electron Forge* options and requeriments, visit the [official docs](https://github.com/electron-userland/electron-forge#usage)._
+_For a complete list of *Electron Forge* options and requirements, visit the [official docs](https://github.com/electron-userland/electron-forge#usage)._
 
 ## License
 
