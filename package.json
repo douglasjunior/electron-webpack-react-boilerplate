@@ -3,7 +3,7 @@
   "productName": "My Project",
   "version": "1.0.0",
   "description": "My Project",
-  "main": "src/index.js",
+  "main": "app/index.js",
   "private": true,
   "scripts": {
     "start": "run-p webpack forge:start",
@@ -46,7 +46,7 @@
         "ignore": [
           ".vscode",
           ".cache",
-          "app",
+          "src",
           "template",
           "out",
           "screenshot"
@@ -67,8 +67,8 @@
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
       "github_repository": {
-        "owner": "",
-        "name": ""
+        "owner": "douglasjunior",
+        "name": "electron-webpack-react-boilerplate"
       },
       "windowsStoreConfig": {
         "packageName": "com.my-project",

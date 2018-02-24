@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line
 
 module.exports = {
-    entry: ['babel-polyfill', 'react-hot-loader/patch', './app/index.js'],
+    entry: ['babel-polyfill', 'react-hot-loader/patch', './src/index.js'],
     plugins: [
         new HtmlWebpackPlugin({
             template: './template/index.html',
