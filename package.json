@@ -10,17 +10,20 @@
     "build": "run-s webpack:build forge:package",
     "forge:start": "electron-forge start",
     "forge:package": "electron-forge package",
-    "forge:make": "run-s make:mac make:linux make:windows",
     "make:mac": "electron-forge make --platform=darwin",
     "make:linux": "electron-forge make --platform=linux --arch=ia32,x64",
     "make:windows": "electron-forge make --platform=win32 --arch=ia32,x64",
-    "publish": "electron-forge publish",
     "webpack": "webpack-dev-server --progress --config webpack.dev.js",
     "webpack:build": "webpack -p --progress --config webpack.prod.js",
-    "lint": "eslint --cache --color --ext .jsx,.js src"
+    "publish": "electron-forge publish",
+    "lint": "eslint . --cache --color"
   },
   "keywords": [],
-  "author": "Douglas Nassif Roma Junior",
+  "author": {
+    "name": "Douglas Nassif Roma Junior",
+    "email": "nassifrroma@gmail.com",
+    "url": "http://douglasjunior.me"
+  },
   "license": "MIT",
   "config": {
     "forge": {
@@ -45,7 +48,8 @@
           ".cache",
           "app",
           "template",
-          "out"
+          "out",
+          "screenshot"
         ]
       },
       "electronWinstallerConfig": {
@@ -72,11 +76,14 @@
       }
     }
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint"
+    }
+  },
   "dependencies": {
-    "@antv/data-set": "^0.8.5",
     "antd": "3.2.1",
     "axios": "0.18.0",
-    "bizcharts": "^3.1.3-beta.2",
     "bluebird": "3.5.1",
     "electron-compile": "6.4.2",
     "electron-devtools-installer": "2.2.3",
@@ -87,7 +94,8 @@
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-hot-loader": "3.1.3",
-    "react-router-dom": "4.2.2"
+    "react-router-dom": "4.2.2",
+    "recharts": "1.0.0-beta.10"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
@@ -111,12 +119,13 @@
     "eslint-plugin-react": "7.7.0",
     "extract-text-webpack-plugin": "3.0.2",
     "html-webpack-plugin": "2.30.1",
+    "husky": "0.15.0-rc.8",
     "less-loader": "4.0.5",
     "node-sass": "4.7.2",
     "npm-run-all": "4.1.2",
     "sass-loader": "6.0.6",
     "style-loader": "0.20.2",
-    "uglifyjs-webpack-plugin": "1.2.1",
+    "uglifyjs-webpack-plugin": "1.2.2",
     "webpack": "3.11.0",
     "webpack-dev-server": "2.11.1",
     "webpack-merge": "4.1.2"

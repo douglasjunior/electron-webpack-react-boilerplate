@@ -4,7 +4,7 @@ import { Card, Row, Col } from 'antd';
 
 import './HomePage.scss';
 import LineChart from '../components/LineChart';
-import VelocChart from '../components/VelocChart';
+import PieChart from '../components/PieChart';
 
 export default class HomePage extends Component {
 
@@ -16,20 +16,26 @@ export default class HomePage extends Component {
     render() {
         return (
             <div>
+                <h1>Dashboard</h1>
                 <Row className="home-page-tile-row">
-                    <Col md={8} className="home-page-tile-card">
+                    <Col xl={6} lg={12} className="home-page-tile-card">
                         <Card>
-                            <VelocChart value={2.6} />
+                            <PieChart />
                         </Card>
                     </Col>
-                    <Col md={8} className="home-page-tile-card">
+                    <Col xl={6} lg={12} className="home-page-tile-card">
                         <Card>
-                            <VelocChart value={3.2} />
+                            <PieChart />
                         </Card>
                     </Col>
-                    <Col md={8} className="home-page-tile-card">
+                    <Col xl={6} lg={12} className="home-page-tile-card">
                         <Card>
-                            <VelocChart value={7.9} />
+                            <PieChart />
+                        </Card>
+                    </Col>
+                    <Col xl={6} lg={12} className="home-page-tile-card">
+                        <Card>
+                            <PieChart />
                         </Card>
                     </Col>
                 </Row>
