@@ -1,12 +1,12 @@
-# Electron and webpack boilerplate.
+# Complete Electron and webpack Boilerplate.
 
-Sample project using Electron Forge + webpack + React + React Router + Ant Design + Recharts + Sass and Less.
+Sample project containing Electron Forge + webpack + React + React Router + Ant Design + Recharts + Sass and Less.
 
 ## Screenshot
 
 ![Screenshot](https://raw.githubusercontent.com/douglasjunior/electron-webpack-react-boilerplate/master/screenshot/screen.png)
 
-## Tecnologies included:
+## Technologies included:
 
 - [Electron Forge](https://electronforge.io/)
     - The command line interface for ambitious Electron applications.
@@ -21,7 +21,7 @@ Sample project using Electron Forge + webpack + React + React Router + Ant Desig
 - [Recharts](http://recharts.org/)
     - A composable charting library built on React components.
 
-## Usage
+## Download
 
 ```bash
 $ git clone https://github.com/douglasjunior/electron-webpack-react-boilerplate.git
@@ -29,7 +29,7 @@ $ cd electron-webpack-react-boilerplate
 $ npm install
 ```
 
-## Scripts:
+## Usage:
 
 Start development mode:
 ```bash
@@ -56,7 +56,7 @@ Build for Windows: (only works on Windows)
 $ npm run make:windows
 ```
 
-_For a complete list of *Electron Forge* options, visit the [official docs](https://github.com/electron-userland/electron-forge#usage)_
+_For a complete list of *Electron Forge* options and requeriments, visit the [official docs](https://github.com/electron-userland/electron-forge#usage)._
 
 ## License
 
