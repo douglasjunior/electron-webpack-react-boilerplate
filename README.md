@@ -1,4 +1,4 @@
-# Complete Electron and webpack Boilerplate.
+# Complete Electron, webpack and React boilerplate
 
 Sample project containing Electron Forge + webpack + React + React Router + Ant Design + Recharts + Sass and Less.
 
@@ -6,7 +6,7 @@ Sample project containing Electron Forge + webpack + React + React Router + Ant 
 
 ![Screenshot](https://raw.githubusercontent.com/douglasjunior/electron-webpack-react-boilerplate/master/screenshot/screen.png)
 
-## Technologies included:
+## Technologies included
 
 - [Electron Forge](https://electronforge.io/)
     - The command line interface for ambitious Electron applications.
