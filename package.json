@@ -1,0 +1,124 @@
+{
+  "name": "electron-webpack-react-boilerplate",
+  "productName": "My Project",
+  "version": "1.0.0",
+  "description": "My Project",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "start": "run-p webpack forge:start",
+    "build": "run-s webpack:build forge:package",
+    "forge:start": "electron-forge start",
+    "forge:package": "electron-forge package",
+    "forge:make": "run-s make:mac make:linux make:windows",
+    "make:mac": "electron-forge make --platform=darwin",
+    "make:linux": "electron-forge make --platform=linux --arch=ia32,x64",
+    "make:windows": "electron-forge make --platform=win32 --arch=ia32,x64",
+    "publish": "electron-forge publish",
+    "webpack": "webpack-dev-server --progress --config webpack.dev.js",
+    "webpack:build": "webpack -p --progress --config webpack.prod.js",
+    "lint": "eslint --cache --color --ext .jsx,.js src"
+  },
+  "keywords": [],
+  "author": "Douglas Nassif Roma Junior",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "wix"
+        ],
+        "darwin": [
+          "dmg"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "yarn",
+        "asar": true,
+        "arch": "all",
+        "ignore": [
+          ".vscode",
+          ".cache",
+          "app",
+          "template",
+          "out"
+        ]
+      },
+      "electronWinstallerConfig": {
+        "name": "My Project"
+      },
+      "electronWixMSIConfig": {
+        "name": "My Project",
+        "appUserModelId": "com.my-project",
+        "manufacturer": "My Project",
+        "ui": {
+          "enabled": true,
+          "chooseDirectory": true
+        }
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "com.my-project",
+        "name": "My Project"
+      }
+    }
+  },
+  "dependencies": {
+    "@antv/data-set": "^0.8.5",
+    "antd": "3.2.1",
+    "axios": "0.18.0",
+    "bizcharts": "^3.1.3-beta.2",
+    "bluebird": "3.5.1",
+    "electron-compile": "6.4.2",
+    "electron-devtools-installer": "2.2.3",
+    "electron-squirrel-startup": "1.0.0",
+    "moment": "2.20.1",
+    "moment-timezone": "0.5.14",
+    "prop-types": "15.6.0",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-hot-loader": "3.1.3",
+    "react-router-dom": "4.2.2"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.2.2",
+    "babel-loader": "7.1.2",
+    "babel-plugin-import": "1.6.5",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "clean-webpack-plugin": "0.1.18",
+    "cross-env": "5.1.3",
+    "css-loader": "0.28.10",
+    "electron-forge": "5.1.1",
+    "electron-prebuilt-compile": "1.8.2",
+    "electron-wix-msi": "1.3.0",
+    "eslint": "4.18.1",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-import": "2.9.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.7.0",
+    "extract-text-webpack-plugin": "3.0.2",
+    "html-webpack-plugin": "2.30.1",
+    "less-loader": "4.0.5",
+    "node-sass": "4.7.2",
+    "npm-run-all": "4.1.2",
+    "sass-loader": "6.0.6",
+    "style-loader": "0.20.2",
+    "uglifyjs-webpack-plugin": "1.2.1",
+    "webpack": "3.11.0",
+    "webpack-dev-server": "2.11.1",
+    "webpack-merge": "4.1.2"
+  }
+}
