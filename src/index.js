@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import './values/theme.less';
+import './styles';
 import App from './App';
 
 window.Promise = require('bluebird');

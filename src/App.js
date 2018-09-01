@@ -5,7 +5,6 @@ import { hot } from 'react-hot-loader';
 import { LocaleProvider } from 'antd';
 import ptBR from 'antd/lib/locale-provider/pt_BR';
 
-import './App.scss';
 import MainLayout from './layouts/MainLayout';
 
 class App extends Component {

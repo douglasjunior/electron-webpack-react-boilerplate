@@ -1,7 +1,8 @@
 const path = require('path');
-const merge = require('webpack-merge'); // eslint-disable-line
-const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // eslint-disable-line
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // eslint-disable-line
+const merge = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const common = require('./webpack.common.js');
 
@@ -15,6 +16,7 @@ module.exports = merge(common, {
         new MiniCssExtractPlugin({
             filename: 'bundle.css',
         }),
+        new OptimizeCSSAssetsPlugin(),
         new UglifyJsPlugin({
             parallel: true,
         }),
