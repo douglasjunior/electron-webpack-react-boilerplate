@@ -1,7 +1,12 @@
 import path from 'path';
-import { app, BrowserWindow } from 'electron'; // eslint-disable-line
 import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
 import { enableLiveReload } from 'electron-compile';
+import { app, BrowserWindow } from 'electron'; // eslint-disable-line import/no-extraneous-dependencies
+
+// Handle creating/removing shortcuts on Windows when installing/uninstalling.
+if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
+    app.quit();
+}
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -13,15 +18,23 @@ if (isDevMode) enableLiveReload({ strategy: 'react-hmr' });
 
 const createWindow = () => {
     // Create the browser window.
-    mainWindow = new BrowserWindow();
+    mainWindow = new BrowserWindow({
+        width: 800,
+        height: 600,
+    });
 
-    mainWindow.maximize();
+    // mainWindow.maximize();
 
     // and load the index.html of the app.
     if (isDevMode) {
         mainWindow.loadURL('http://localhost:8081/');
     } else {
         mainWindow.loadURL(`file://${path.resolve(__dirname, '..', 'dist')}/index.html`);
+    }
+
+    // Open the DevTools.
+    if (isDevMode) {
+        mainWindow.webContents.openDevTools();
     }
 
     // Emitted when the window is closed.
@@ -31,7 +44,6 @@ const createWindow = () => {
         // when you should delete the corresponding element.
         mainWindow = null;
     });
-
     // Open the DevTools.
     if (isDevMode) {
         installExtension(REACT_DEVELOPER_TOOLS).then(() => {

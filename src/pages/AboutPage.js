@@ -18,8 +18,8 @@ export default class AboutPage extends Component {
                     + Ant Design + Recharts + Sass and Less.
                 </p>
                 <p>
-                    Source code on
-                    <a href="https://github.com/douglasjunior/electron-webpack-react-boilerplate" >
+                    <span>Source code on </span>
+                    <a href="https://github.com/douglasjunior/electron-webpack-react-boilerplate">
                         GitHib Repo
                     </a>
                     .

@@ -1,8 +1,7 @@
 const path = require('path');
 const merge = require('webpack-merge'); // eslint-disable-line
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin'); // eslint-disable-line
-const ExtractTextPlugin = require('extract-text-webpack-plugin'); // eslint-disable-line
-const CleanWebpackPlugin = require('clean-webpack-plugin'); // eslint-disable-line
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // eslint-disable-line
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // eslint-disable-line
 
 const common = require('./webpack.common.js');
 
@@ -11,27 +10,45 @@ module.exports = merge(common, {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
     },
+    mode: 'production',
     plugins: [
-        new CleanWebpackPlugin('dist'),
-        new ExtractTextPlugin('bundle.css', {
-            allChunks: true,
+        new MiniCssExtractPlugin({
+            filename: 'bundle.css',
         }),
-        new UglifyJSPlugin(),
+        new UglifyJsPlugin({
+            parallel: true,
+        }),
     ],
     module: {
         rules: [
             {
                 test: /\.s?css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader'],
-                }),
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]_[local]_[hash:base64:10]',
+                            importLoaders: 2,
+                        },
+                    }, {
+                        loader: 'sass-loader',
+                    },
+                ],
             }, {
                 test: /\.less$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'less-loader'],
-                }),
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                    }, {
+                        loader: 'less-loader',
+                        options: {
+                            javascriptEnabled: true,
+                        },
+                    },
+                ],
             },
         ],
     },

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import {
-    LineChart as LC, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
-    ResponsiveContainer,
+    LineChart as LC, Line, XAxis, YAxis, CartesianGrid,
+    Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
 
 const data = [

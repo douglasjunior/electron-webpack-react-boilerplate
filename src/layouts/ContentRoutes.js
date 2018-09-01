@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { Switch, Route } from 'react-router-dom';
 
-import './ContentRoutes.scss';
+import styles from './ContentRoutes.scss';
 
 import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
@@ -36,7 +36,7 @@ export default class ContentRoutes extends Component {
 
     render() {
         return (
-            <Content className="content-routes">
+            <Content className={styles.content}>
                 <Switch>
 
                     {ROUTES}

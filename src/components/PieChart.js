@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
-import { PieChart as PC, Pie, ResponsiveContainer, Cell } from 'recharts';
+import {
+    PieChart as PC, Pie,
+    ResponsiveContainer, Cell,
+} from 'recharts';
 
 const data = [
     { name: 'Group A', value: 400 },

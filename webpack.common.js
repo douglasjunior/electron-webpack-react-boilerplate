@@ -1,8 +1,10 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // eslint-disable-line
+const CleanWebpackPlugin = require('clean-webpack-plugin'); // eslint-disable-line
 
 module.exports = {
-    entry: ['babel-polyfill', 'react-hot-loader/patch', './src/index.js'],
+    entry: ['babel-polyfill', './src/index.js'],
     plugins: [
+        new CleanWebpackPlugin(['dist/**/*']),
         new HtmlWebpackPlugin({
             template: './template/index.html',
             title: 'My Project',
@@ -15,6 +17,12 @@ module.exports = {
                 use: ['file-loader'],
             },
             {
+                enforce: 'pre',
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'eslint-loader',
+            },
+            {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
@@ -24,6 +32,6 @@ module.exports = {
         ],
     },
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.less', '.json'],
     },
 };

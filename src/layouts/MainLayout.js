@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 
 import { Layout } from 'antd';
 
+import styles from './MainLayout.scss';
 import HeaderBar from './HeaderBar';
 import ContentRoutes from './ContentRoutes';
-import './MainLayout.scss';
 import SideMenu from './SideMenu';
 
 export default class MainLayout extends Component {
@@ -13,7 +13,7 @@ export default class MainLayout extends Component {
 
     render() {
         return (
-            <Layout className="main-layout">
+            <Layout className={styles.layout}>
                 <SideMenu />
                 <Layout>
                     <HeaderBar />

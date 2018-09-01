@@ -1,17 +1,18 @@
+const path = require('path');
 const webpack = require('webpack'); // eslint-disable-line
 const merge = require('webpack-merge'); // eslint-disable-line
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-    output: 'bundle.js',
-    devtool: 'inline-source-map',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+    },
+    mode: 'development',
+    devtool: 'eval-source-map',
     devServer: {
         contentBase: './dist',
         port: 8081,
-        overlay: {
-            warnings: true,
-            errors: true,
-        },
         hot: true,
     },
     plugins: [
@@ -22,10 +23,48 @@ module.exports = merge(common, {
         rules: [
             {
                 test: /\.s?css$/,
-                use: ['style-loader', 'css-loader', 'sass-loader'],
+                use: [
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    }, {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            modules: true,
+                            localIdentName: '[name]_[local]_[hash:base64:10]',
+                            importLoaders: 1,
+                        },
+                    }, {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                ],
             }, {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'less-loader'],
+                use: [
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    }, {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    }, {
+                        loader: 'less-loader',
+                        options: {
+                            sourceMap: true,
+                            javascriptEnabled: true,
+                        },
+                    },
+                ],
             },
         ],
     },

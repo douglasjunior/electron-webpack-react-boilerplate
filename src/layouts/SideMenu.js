@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Layout, Menu, Icon } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
 
-import './SideMenu.scss';
+import styles from './SideMenu.scss';
 import { ROUTES_ITEMS } from './ContentRoutes';
 
 const { Sider } = Layout;
@@ -21,16 +21,17 @@ class SideMenu extends Component {
 
     render() {
         const { collapsed } = this.state;
+        const { location } = this.props;
 
         const menuItems = ROUTES_ITEMS.map(item => (
-            <Menu.Item key={item.to} >
+            <Menu.Item key={item.to}>
                 <Link to={item.to}>
                     <Icon type={item.icon} />
                     <span className="nav-text">
                         {item.text}
                     </span>
                 </Link>
-            </Menu.Item >
+            </Menu.Item>
         ));
 
         return (
@@ -41,7 +42,7 @@ class SideMenu extends Component {
                 collapsed={collapsed}
             >
 
-                <div className="side-menu-logo" >
+                <div className={styles.logo}>
                     <h1>
                         <Link to="/">Project</Link>
                     </h1>
@@ -50,7 +51,7 @@ class SideMenu extends Component {
                 <Menu
                     theme="dark"
                     mode="inline"
-                    selectedKeys={[this.props.location.pathname]}
+                    selectedKeys={[location.pathname]}
                     defaultSelectedKeys={['/']}
                 >
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Layout, Icon } from 'antd';
 
-import './HeaderBar.scss';
+import styles from './HeaderBar.scss';
 
 const { Header } = Layout;
 
@@ -12,7 +12,7 @@ export default class HeaderBar extends Component {
 
     render() {
         return (
-            <Header className="header-bar" >
+            <Header className={styles.bar}>
 
                 <Icon type="user" />
 
