@@ -1,7 +1,8 @@
 import path from 'path';
 import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
 import { enableLiveReload } from 'electron-compile';
-import { app, BrowserWindow } from 'electron'; // eslint-disable-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-unresolved, import/no-extraneous-dependencies
+import { app, BrowserWindow } from 'electron';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
